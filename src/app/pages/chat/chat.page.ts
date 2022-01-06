@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 import { Observable } from 'rxjs';// permiten interactuar con el usuario
 import { finalize,tap } from 'rxjs/operators';
+import {  NgZone } from '@angular/core';
+import { CallbackID, Capacitor } from '@capacitor/core';
+import { Geolocation } from '@capacitor/geolocation';
 
 import { AngularFireStorage,AngularFireUploadTask } from '@angular/fire/storage';
 import { AngularFirestore,AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -24,6 +27,10 @@ export interface imgFile {
   styleUrls: ['./chat.page.scss'],
 })
 export class ChatPage implements OnInit {
+  coordinate: any;
+  watchCoordinate: any;
+  watchId: any;
+
 
   @ViewChild(IonContent) content: IonContent;
  
@@ -55,7 +62,7 @@ export class ChatPage implements OnInit {
   private filesCollection: AngularFirestoreCollection<imgFile>;
 
   constructor(private chatService: ChatService, private router: Router,private afs: AngularFirestore,
-    private afStorage: AngularFireStorage) { 
+    private afStorage: AngularFireStorage, private zone: NgZone) { 
       {
         this.isFileUploading = false;
         this.isFileUploaded = false;
@@ -147,6 +154,53 @@ storeFilesFirebase(image: imgFile) {
 }
 
 
+async requestPermissions() {
+  const permResult = await Geolocation.requestPermissions();
+  console.log('Perm request result: ', permResult);
+}
+
+getCurrentCoordinate() {
+  if (!Capacitor.isPluginAvailable('Geolocation')) {
+    console.log('Plugin geolocation not available');
+    return;
+  }
+  Geolocation.getCurrentPosition().then(data => {
+    this.coordinate = {
+      latitude: data.coords.latitude,
+      longitude: data.coords.longitude,
+      accuracy: data.coords.accuracy
+    };
+    
+
+  }).catch(err => {
+    console.error(err);
+  });
+}
+
+watchPosition() {
+    this.watchId = Geolocation.watchPosition({}, (position, err) => {
+      console.log('Watch', position);
+      this.zone.run(() => {
+        this.watchCoordinate = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        }
+      });
+      this.chatService.addChatMessage(this.newMsg).then(() => {
+        this.newMsg = "latitude:"+ position.coords.latitude  +  "longuitude:"+ position.coords.longitude
+        this.content.scrollToBottom();
+      
+      });
+     
+    });
+}
+
+
+clearWatch() {
+  if (this.watchId != null) {
+    Geolocation.clearWatch({ id: this.watchId });
+  }
+}
  
 }
 

@@ -47,6 +47,17 @@
   Data transfered: {{ snap.bytesTransferred | formatFileSize }}
 </div>    
 </ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-button size="small" (click)="watchPosition()">
+     Obtener posicion
+    </ion-button>
+  </ion-card-header>
+  <ion-card-content>
+    Lat: {{watchCoordinate?.latitude }}
+    Long: {{ watchCoordinate?.longitude }}
+  </ion-card-content>
+</ion-card>
 
 
 <ion-footer>
@@ -65,5 +76,4 @@
     </ion-row>
   </ion-toolbar>
 
-  
 </ion-footer>
