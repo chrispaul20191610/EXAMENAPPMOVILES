@@ -46,7 +46,7 @@
 <ion-card class="ion-text-center" *ngIf="!isUploading && !isUploaded">
   <ion-card-content>
     
-     <ion-button color="primary" shape="round" size="medium">
+     <ion-button color="primary" shape="round" size="small" expand="block">
       <ion-icon name="archive-outline"></ion-icon>
       <input type="file" (change)="uploadImage($event.target.files)" />
     </ion-button>
@@ -77,12 +77,8 @@
           <ion-icon name="location-outline"></ion-icon>
          </ion-button>
 
-
         </ion-buttons>
       
-        
-      
-    
   </ion-toolbar>
   
 </ion-footer>
