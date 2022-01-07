@@ -90,3 +90,13 @@ La función uploadimage es la encargada de subir capturar las images y subirlas 
 
 # Funcionalidad Chat
 ![image](https://user-images.githubusercontent.com/66235614/145831296-543fe492-1926-4b9d-a90e-1025fbec8c5e.png)
+
+en la funcionalidad de la camara debemos trabajar con otros plugins en este caso tenemos que instalar capacitor/camara a nuestro proyecto.
+![Sin título](https://user-images.githubusercontent.com/56648687/148613135-d6c61e4b-6f42-45de-a2f1-f2eb1d38466f.png)
+
+en esta seccion vamos a trabajar con lo que son las funcionalidades de la camra asi mismo como la ventana que se abrira al dar click en la camara.
+![Sin título](https://user-images.githubusercontent.com/56648687/148613345-9da848e2-007f-4e68-9671-7035162347f5.png)
+
+tambien debemos crear un servicio para fotos en este archivo vamos a tomar las fotos y almacenarlas tambien aqui vamos a leer el filesystem, para leer nuestros archivos de imagen, y asi poder ejecutar las otras funciones de envio, lectura y delete.
+![Sin título](https://user-images.githubusercontent.com/56648687/148613655-f896af3f-bda6-457f-a9ae-8c27af5ff2a3.png)
+en la aplicacion tenemos la camara funcionando.
