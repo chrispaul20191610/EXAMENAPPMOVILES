@@ -8,7 +8,8 @@ import { finalize,tap } from 'rxjs/operators';
 import {  NgZone } from '@angular/core';
 import { CallbackID, Capacitor } from '@capacitor/core';
 import { Geolocation } from '@capacitor/geolocation';
-
+import { ActionSheetController } from '@ionic/angular';
+import { UserPhoto, PhotoService} from '../../services/photo.service';
 import { AngularFireStorage,AngularFireUploadTask } from '@angular/fire/storage';
 import { AngularFirestore,AngularFirestoreCollection } from '@angular/fire/firestore';
 
@@ -62,7 +63,7 @@ export class ChatPage implements OnInit {
   private filesCollection: AngularFirestoreCollection<imgFile>;
 
   constructor(private chatService: ChatService, private router: Router,private afs: AngularFirestore,
-    private afStorage: AngularFireStorage, private zone: NgZone) { 
+    private afStorage: AngularFireStorage, private zone: NgZone,public photoService: PhotoService, public actionSheetController: ActionSheetController) { 
       {
         this.isFileUploading = false;
         this.isFileUploaded = false;
@@ -74,8 +75,9 @@ export class ChatPage implements OnInit {
     
     }
 
-  ngOnInit() {
+    async ngOnInit() {
     this.messages = this.chatService.getChatMessages();
+    await this.photoService.loadSaved();
     
   }
 
@@ -178,20 +180,16 @@ getCurrentCoordinate() {
 }
 
 watchPosition() {
+
     this.watchId = Geolocation.watchPosition({}, (position, err) => {
       console.log('Watch', position);
+      this.newMsg=`latitude: ${position.coords.latitude}  longuitude: ${position.coords.longitude}`
       this.zone.run(() => {
         this.watchCoordinate = {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         }
-      });
-      this.chatService.addChatMessage(this.newMsg).then(() => {
-        this.newMsg = "latitude:"+ position.coords.latitude  +  "longuitude:"+ position.coords.longitude
-        this.content.scrollToBottom();
-      
-      });
-     
+      }); 
     });
 }
 
@@ -200,6 +198,28 @@ clearWatch() {
   if (this.watchId != null) {
     Geolocation.clearWatch({ id: this.watchId });
   }
+}
+
+public async showActionSheet(photo: UserPhoto, position: number) {
+  const actionSheet = await this.actionSheetController.create({
+    header: 'Photos',
+    buttons: [{
+      text: 'Delete',
+      role: 'destructive',
+      icon: 'trash',
+      handler: () => {
+        this.photoService.deletePicture(photo, position);
+      }
+    }, {
+      text: 'Cancel',
+      icon: 'close',
+      role: 'cancel',
+      handler: () => {
+        // Nothing to do, action sheet is automatically closed
+       }
+    }]
+  });
+  await actionSheet.present();
 }
  
 }

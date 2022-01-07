@@ -7,7 +7,7 @@ import { Platform } from '@ionic/angular';
 @Injectable({
   providedIn: 'root'
 })
-export class PhotoServiceService {
+export class PhotoService {
   public photos: UserPhoto[] = [];
   private PHOTO_STORAGE: string = 'photos';
 

@@ -9,7 +9,11 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-  
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="photoService.addNewToGallery()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 <ion-grid>
   <ion-row *ngFor="let message of messages | async">
     <ion-col size="9" class="message" [offset]="message.myMsg ? 3 : 0"
@@ -46,6 +50,7 @@
   
   Data transfered: {{ snap.bytesTransferred | formatFileSize }}
 </div>    
+
 </ion-content>
 <ion-card>
   <ion-card-header>
@@ -58,7 +63,11 @@
     Long: {{ watchCoordinate?.longitude }}
   </ion-card-content>
 </ion-card>
-
+<ion-row>
+  <ion-col size="2" *ngFor="let photo of photoService.photos; index as position">
+    <ion-img [src]="photo.webviewPath" (click)="showActionSheet(photo, position)"></ion-img>
+  </ion-col>
+  </ion-row>
 
 <ion-footer>
   <ion-toolbar color="light">
@@ -75,5 +84,5 @@
       </ion-col>
     </ion-row>
   </ion-toolbar>
-
+  
 </ion-footer>
