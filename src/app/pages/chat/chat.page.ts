@@ -11,7 +11,7 @@ import { Geolocation } from '@capacitor/geolocation';
 
 import { AngularFireStorage,AngularFireUploadTask } from '@angular/fire/storage';
 import { AngularFirestore,AngularFirestoreCollection } from '@angular/fire/firestore';
-
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx'
 
 
 export interface imgFile {
@@ -30,6 +30,10 @@ export class ChatPage implements OnInit {
   coordinate: any;
   watchCoordinate: any;
   watchId: any;
+
+  tmpImage: any = undefined;
+  imageId = Math.floor(Math.random() * 500);y
+  
 
 
   @ViewChild(IonContent) content: IonContent;
