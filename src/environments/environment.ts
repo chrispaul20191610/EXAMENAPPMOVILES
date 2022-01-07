@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-  apiKey: "AIzaSyAKhGkPkuCQ8cKzfJKHHLb2OwJsJpkqjm0",
-  authDomain: "chatprueba-baee8.firebaseapp.com",
-  databaseURL: "https://chatprueba-baee8-default-rtdb.firebaseio.com",
-  projectId: "chatprueba-baee8",
-  storageBucket: "chatprueba-baee8.appspot.com",
-  messagingSenderId: "923187277233",
-  appId: "1:923187277233:web:79951cbbf1a446ba0be190"
+    apiKey: "AIzaSyBbgR0KD3Ai1QEXqOaT_25vQpTm_CDlGDU",
+    authDomain: "examenappmoviles.firebaseapp.com",
+    projectId: "examenappmoviles",
+    storageBucket: "examenappmoviles.appspot.com",
+    messagingSenderId: "221210737477",
+    appId: "1:221210737477:web:e815b9d27044b6b868dc2c"
+  
   }
 };
 
