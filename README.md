@@ -99,4 +99,10 @@ en esta seccion vamos a trabajar con lo que son las funcionalidades de la camra 
 
 tambien debemos crear un servicio para fotos en este archivo vamos a tomar las fotos y almacenarlas tambien aqui vamos a leer el filesystem, para leer nuestros archivos de imagen, y asi poder ejecutar las otras funciones de envio, lectura y delete.
 ![Sin título](https://user-images.githubusercontent.com/56648687/148613655-f896af3f-bda6-457f-a9ae-8c27af5ff2a3.png)
+
 en la aplicacion tenemos la camara funcionando.
+
+la vista final de la aaplicacion es la siguiente:
+
+![Sin título](https://user-images.githubusercontent.com/56648687/148613831-6c77e029-c13d-4813-8a45-e24d0cd50702.png)
+
