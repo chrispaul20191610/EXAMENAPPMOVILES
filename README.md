@@ -104,5 +104,6 @@ en la aplicacion tenemos la camara funcionando.
 
 la vista final de la aaplicacion es la siguiente:
 
-![Sin título](https://user-images.githubusercontent.com/56648687/148613831-6c77e029-c13d-4813-8a45-e24d0cd50702.png)
+![Sin título](https://user-images.githubusercontent.com/56648687/148614980-2fcf9426-4619-4013-8909-f908d2de932b.png)
+
 
