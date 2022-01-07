@@ -183,7 +183,7 @@ watchPosition() {
 
     this.watchId = Geolocation.watchPosition({}, (position, err) => {
       console.log('Watch', position);
-      this.newMsg=`latitude: ${position.coords.latitude}  longuitude: ${position.coords.longitude}`
+      this.newMsg="Mi ubicación es " + `latitude: ${position.coords.latitude}  longuitude: ${position.coords.longitude}`
       this.zone.run(() => {
         this.watchCoordinate = {
           latitude: position.coords.latitude,
