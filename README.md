@@ -88,9 +88,11 @@ La función uploadimage es la encargada de subir capturar las images y subirlas 
 
 ![image](https://user-images.githubusercontent.com/66235614/145818327-8a33f5bb-e787-4bae-8818-d15fd6a0dda4.png)
 
- Funcionalidad Chat
+ Funcionalidad del Chat
 
 ![image](https://user-images.githubusercontent.com/66235614/148621902-535f4c72-8d91-4320-80c1-c469cf2aae13.png)
+
+# Implementación de la cámara 
 
 En la funcionalidad de la camara debemos trabajar con otros plugins en este caso tenemos que instalar capacitor/camara a nuestro proyecto.
 
@@ -109,5 +111,35 @@ En la aplicacion tenemos la camara funcionando.
 La vista final de la aaplicacion es la siguiente:
 
 ![Sin título](https://user-images.githubusercontent.com/56648687/148614980-2fcf9426-4619-4013-8909-f908d2de932b.png)
+
+# Galeria de fotos 
+
+Se guarda las fotos tomadas por la cámara de la aplicación y a la vez muestra una pequeña galeria de fotos en el chat.
+
+![image](https://user-images.githubusercontent.com/66235614/148622538-c330aef9-6d93-45ea-961a-c7a12dd6a25d.png)
+
+![image](https://user-images.githubusercontent.com/66235614/148623434-7f6f7c1e-3470-4812-89b0-d5ea753e0991.png)
+
+![image](https://user-images.githubusercontent.com/66235614/148623361-c86a189e-a962-4349-bfcb-577a25d5b95b.png)
+
+Existe la opción de borrar y cancelar fotos de la galeria.
+
+![image](https://user-images.githubusercontent.com/66235614/148623477-d1355ada-ea83-457c-b5c2-07164c8954ab.png)
+
+![image](https://user-images.githubusercontent.com/66235614/148623506-64a8194d-6c54-45f9-92f6-199b9c9db7cd.png)
+
+# Geolocalización
+
+![image](https://user-images.githubusercontent.com/66235614/148624317-7118f85f-37b3-4cac-8ab9-0669af161b98.png)
+
+![image](https://user-images.githubusercontent.com/66235614/148624434-5783dd00-b168-42a6-beb1-ce9f88e40537.png)
+
+
+
+
+
+
+
+
 
 
