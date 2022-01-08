@@ -134,9 +134,13 @@ Existe la opción de borrar y cancelar fotos de la galeria.
 
 ![image](https://user-images.githubusercontent.com/66235614/148624434-5783dd00-b168-42a6-beb1-ce9f88e40537.png)
 
-# Aplicacion generada en Andriod Studio
+# Aplicacion generada en Android Studio
 
 ![image](https://user-images.githubusercontent.com/66235614/148624926-8c596cab-51b3-47d0-91a4-dab9f7f39be4.png)
+
+# Apk generada
+
+![image](https://user-images.githubusercontent.com/66235614/148625025-9e7bf1d7-a124-48d1-8b32-6bd9aa5a132a.png)
 
 
 
